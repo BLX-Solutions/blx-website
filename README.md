@@ -1,8 +1,18 @@
+<p align="center">
+  <img src="assets/brand/blx-solutions-logo.svg" alt="BLX Solutions — Digital Marketing" width="640">
+</p>
+
 # BLX Solutions Website
 
 Official website project for **BLX Solutions**.
 
 > Websites and digital marketing for small local businesses.
+
+## Current brand asset
+
+The logo above is the current official BLX Solutions logo for this project. It is provisional and may be refined or replaced as the brand develops.
+
+Source file: [assets/brand/blx-solutions-logo.svg](assets/brand/blx-solutions-logo.svg)
 
 ## Project goals
 
