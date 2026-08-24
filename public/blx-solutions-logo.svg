@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-clean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A192F" />
+      <stop offset="100%" stop-color="#060E1A" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" fill="url(#bg-clean)" rx="12" />
+  <g transform="translate(400, 115)">
+    <text x="0" y="0" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="8">
+      BLX <tspan font-weight="300" fill="#94A3B8">SOLUTIONS</tspan>
+    </text>
+    <text x="0" y="42" text-anchor="middle" fill="#0052FF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="16">DIGITAL MARKETING</text>
+  </g>
+</svg>
