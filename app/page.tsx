@@ -1,49 +1,12 @@
-const services = [
-  {
-    number: "01",
-    title: "Website design",
-    description:
-      "Fast, polished websites shaped around your real goals — never a generic template with your logo dropped in.",
-    className: "service-card service-card--wide",
-  },
-  {
-    number: "02",
-    title: "SEO & AI visibility",
-    description:
-      "A clear foundation that helps the right people discover you through search engines and emerging AI search.",
-    className: "service-card",
-  },
-  {
-    number: "03",
-    title: "Digital marketing",
-    description:
-      "Practical campaigns and content direction built around your audience, budget and next business goal.",
-    className: "service-card",
-  },
-  {
-    number: "04",
-    title: "Website support & handover",
-    description:
-      "Dependable ongoing help when you want it, or a clear handover that leaves you confidently in control.",
-    className: "service-card service-card--wide",
-  },
-];
+import Link from "next/link";
+import { services } from "./services";
+import { SiteFooter, SiteHeader } from "./site-chrome";
 
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="BLX Solutions home">
-          <img src="/blx-solutions-logo.svg" alt="BLX Solutions" />
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#approach">Approach</a>
-          <a href="#work">Work</a>
-          <a className="nav-cta" href="#contact">Request a quote</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main id="main-content">
         <section className="hero shell" id="top">
@@ -100,11 +63,11 @@ export default function Home() {
           </div>
           <div className="service-grid">
             {services.map((service) => (
-              <article className={service.className} key={service.number}>
+              <Link className={service.className} href={`/services/${service.slug}`} key={service.number}>
                 <span className="service-number">{service.number}</span>
-                <div><h3>{service.title}</h3><p>{service.description}</p></div>
-                <span className="card-arrow" aria-hidden="true">↗</span>
-              </article>
+                <div><h3>{service.title}</h3><p>{service.shortDescription}</p></div>
+                <span className="card-arrow" aria-hidden="true">View service</span>
+              </Link>
             ))}
           </div>
         </section>
@@ -130,10 +93,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer shell">
-        <img src="/blx-solutions-logo.svg" alt="BLX Solutions" />
-        <p>© 2026 BLX Solutions. Human-led digital strategy.</p>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
