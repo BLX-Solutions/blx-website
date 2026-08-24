@@ -104,6 +104,18 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="founder-signal shell">
+          <div>
+            <p className="eyebrow">Experience behind the system</p>
+            <h2>BLX is new.<br />The digital experience isn&apos;t.</h2>
+          </div>
+          <div className="founder-signal__copy">
+            <p>BLX is led by Luke Brown, with experience spanning e-commerce, website delivery, SEO, paid search, digital strategy, reporting and client relationships.</p>
+            <div className="experience-tags" aria-label="Areas of experience"><span>E-commerce</span><span>Website delivery</span><span>PPC</span><span>Client accounts</span></div>
+            <Link className="text-link" href="/about">Read the BLX story</Link>
+          </div>
+        </section>
+
         <section className="contact shell" id="contact">
           <p className="eyebrow">Start a conversation</p>
           <h2>Tell us what you want<br />your business to become.</h2>
