@@ -36,6 +36,18 @@ export default function AboutPage() {
           </ol>
         </section>
 
+        <section className="automation-note shell">
+          <div>
+            <span className="detail-label">Confidential experience</span>
+            <h2>Automation before it became the default conversation.</h2>
+          </div>
+          <div>
+            <p>While working as a PPC specialist, Luke contributed campaign expertise and practical feedback to the evolution of technology used to automate Google Ads across a large automotive listing inventory.</p>
+            <p>The underlying software was not created or designed by Luke, and the client remains confidential. The value of the experience lies in understanding how advanced automation behaves in real campaign work—and where human oversight still matters.</p>
+            <Link className="text-link" href="/work/automotive-ads-automation">Read the confidential case summary</Link>
+          </div>
+        </section>
+
         <section className="working-process shell" id="process">
           <div className="section-heading">
             <div><p className="eyebrow">How BLX works</p><h2>Clear stages.<br />No mystery layer.</h2></div>
