@@ -66,9 +66,7 @@ export default function Home() {
           <div className="service-grid">
             {services.map((service) => {
               const content = <><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.shortDescription}</p></div><span className="card-arrow" aria-hidden="true">Explore service</span></>;
-              return service.slug === "website-design"
-                ? <CompileLink className={`${service.className} service-card--compile`} href={`/services/${service.slug}`} key={service.number} label={service.title}>{content}</CompileLink>
-                : <Link className={service.className} href={`/services/${service.slug}`} key={service.number}>{content}</Link>;
+              return <CompileLink className={`${service.className} service-card--compile`} href={`/services/${service.slug}`} key={service.number} label={service.title} route={service.number}>{content}</CompileLink>;
             })}
           </div>
         </section>
@@ -100,7 +98,7 @@ export default function Home() {
           <div className="phase-card">
             <span className="card-label">BLX Compile</span>
             <div className="compile-preview"><span>BLX</span><span className="compile-cursor" aria-hidden="true" /></div>
-            <p>The Website Design card is the first BLX Compile route, turning navigation into part of the story.</p>
+            <p>Every service route uses BLX Compile, turning navigation into a small expression of the strategy behind the work.</p>
           </div>
         </section>
 
