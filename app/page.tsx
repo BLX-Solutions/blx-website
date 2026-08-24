@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div className="service-grid">
             {services.map((service) => {
-              const content = <><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.shortDescription}</p></div><span className="card-arrow" aria-hidden="true">{service.slug === "website-design" ? "Compile prototype" : "View service"}</span></>;
+              const content = <><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.shortDescription}</p></div><span className="card-arrow" aria-hidden="true">Explore service</span></>;
               return service.slug === "website-design"
                 ? <CompileLink className={`${service.className} service-card--compile`} href={`/services/${service.slug}`} key={service.number} label={service.title}>{content}</CompileLink>
                 : <Link className={service.className} href={`/services/${service.slug}`} key={service.number}>{content}</Link>;
@@ -98,7 +98,7 @@ export default function Home() {
             <p>Tools help us move faster and see more. Human experience decides what fits your audience, your goals and your business.</p>
           </div>
           <div className="phase-card">
-            <span className="card-label">Prototype active</span>
+            <span className="card-label">BLX Compile</span>
             <div className="compile-preview"><span>BLX</span><span className="compile-cursor" aria-hidden="true" /></div>
             <p>The Website Design card is the first BLX Compile route, turning navigation into part of the story.</p>
           </div>
