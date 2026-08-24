@@ -10,7 +10,7 @@ export function SiteHeader() {
       <nav aria-label="Main navigation">
         <Link href="/#services">Services</Link>
         <Link href="/#approach">Approach</Link>
-        <Link href="/#work">Work</Link>
+        <Link href="/work">Work</Link>
         <Link className="nav-cta" href="/contact">Request a quote</Link>
       </nav>
     </header>
