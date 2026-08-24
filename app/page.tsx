@@ -2,6 +2,7 @@ import Link from "next/link";
 import { services } from "./services";
 import { SiteFooter, SiteHeader } from "./site-chrome";
 import { workProjects } from "./work";
+import { CompileLink } from "./compile/compile-link";
 
 export default function Home() {
   return (
@@ -63,13 +64,12 @@ export default function Home() {
             <p>Each service works independently. Together, they form a clearer and more effective digital presence.</p>
           </div>
           <div className="service-grid">
-            {services.map((service) => (
-              <Link className={service.className} href={`/services/${service.slug}`} key={service.number}>
-                <span className="service-number">{service.number}</span>
-                <div><h3>{service.title}</h3><p>{service.shortDescription}</p></div>
-                <span className="card-arrow" aria-hidden="true">View service</span>
-              </Link>
-            ))}
+            {services.map((service) => {
+              const content = <><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.shortDescription}</p></div><span className="card-arrow" aria-hidden="true">{service.slug === "website-design" ? "Compile prototype" : "View service"}</span></>;
+              return service.slug === "website-design"
+                ? <CompileLink className={`${service.className} service-card--compile`} href={`/services/${service.slug}`} key={service.number} label={service.title}>{content}</CompileLink>
+                : <Link className={service.className} href={`/services/${service.slug}`} key={service.number}>{content}</Link>;
+            })}
           </div>
         </section>
 
