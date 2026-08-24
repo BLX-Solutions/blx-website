@@ -22,6 +22,9 @@ Phase 1 development is underway. The repository now contains the first working *
 
 The full **BLX Compile** opening and route-transition engine is deliberately reserved for a later phase, after the stable pages and content are established.
 
+> [!IMPORTANT]
+> **Launch blocker:** The site must not be treated as finished or published until the official BLX contact details are confirmed, displayed, and connected to the enquiry system. A real enquiry must be sent and received successfully before launch.
+
 ## Run it locally
 
 You will need Node.js 22 or newer.
