@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { services } from "./services";
 import { SiteFooter, SiteHeader } from "./site-chrome";
+import { workProjects } from "./work";
 
 export default function Home() {
   return (
@@ -72,13 +73,31 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="selected-work shell" id="work">
+          <div className="section-heading">
+            <div><p className="eyebrow">Selected work</p><h2>Real projects.<br />Honest status.</h2></div>
+            <p>Work in progress can still demonstrate useful thinking. These case studies separate completed evidence from future ambition.</p>
+          </div>
+          <div className="selected-work__grid">
+            {workProjects.map((project) => (
+              <Link className={`case-card ${project.accent}`} href={`/work/${project.slug}`} key={project.slug}>
+                <div className="case-card__top"><span>{project.number}</span><span>{project.status}</span></div>
+                <div className="case-card__signal" aria-hidden="true"><span /><span /><span /></div>
+                <div><p>{project.category}</p><h3>{project.title}</h3><p>{project.summary}</p></div>
+                <strong>View case study</strong>
+              </Link>
+            ))}
+          </div>
+          <Link className="text-link selected-work__link" href="/work">Explore all selected work</Link>
+        </section>
+
         <section className="approach shell" id="approach">
           <div className="approach-card">
             <p className="eyebrow">The BLX approach</p>
             <h2>AI can accelerate the work.<br />It should never replace the thinking.</h2>
             <p>Tools help us move faster and see more. Human experience decides what fits your audience, your goals and your business.</p>
           </div>
-          <div className="phase-card" id="work">
+          <div className="phase-card">
             <span className="card-label">Coming in phase two</span>
             <div className="compile-preview"><span>BLX</span><span className="compile-cursor" aria-hidden="true" /></div>
             <p>The full BLX Compile page-transition system will turn navigation into part of the story.</p>
