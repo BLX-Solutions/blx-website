@@ -19,7 +19,7 @@ export default function WorkPage() {
           <h1>Show the thinking.<br />State the truth.</h1>
           <div className="work-hero__footer">
             <p>BLX is at the beginning of its next chapter. These projects show the real process, current evidence and work still to be completed — without invented results.</p>
-            <span>03 / ACTIVE PROJECTS</span>
+            <span>04 / SELECTED PROJECTS</span>
           </div>
         </section>
         <section className="work-list shell" aria-label="BLX projects">
