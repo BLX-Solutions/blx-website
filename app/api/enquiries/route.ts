@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
   if (process.env.NODE_ENV === "production") {
     return NextResponse.json(
-      { message: "Message delivery is not connected yet. Please try again after the BLX contact inbox is confirmed." },
+      { message: "Automatic form delivery is not connected yet. Please use the email address shown on this page." },
       { status: 503 },
     );
   }
