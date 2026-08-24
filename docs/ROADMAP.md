@@ -59,6 +59,22 @@ Official creative direction: [The Signal System, powered by BLX Compile transiti
 - Connect the chosen domain
 - Publish the first production version
 
+### Mandatory contact launch gate
+
+The website must not go live until all of the following are complete:
+
+- [ ] Confirm the official public BLX email address
+- [ ] Confirm any public phone number, messaging channel and business/service-area details that BLX wants displayed
+- [ ] Add the confirmed details to the contact page and relevant footer/legal content
+- [ ] Connect the enquiry form to the real BLX inbox
+- [ ] Add the final privacy notice and consent wording
+- [ ] Send a genuine end-to-end test enquiry
+- [ ] Confirm the message arrives in the correct inbox and that replies work
+- [ ] Check spam handling and failure messaging
+- [ ] Remove all development-only contact notices
+
+**This checklist is a hard launch blocker, not an optional polish task.**
+
 ## First task when development resumes
 
-Create the homepage blueprint: confirm the message, call to action and section order before choosing the technical stack or writing code.
+Continue from the current build checkpoint and take the next incomplete roadmap item in order.
