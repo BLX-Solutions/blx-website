@@ -8,6 +8,37 @@ Official website project for **BLX Solutions**.
 
 > Websites and digital marketing for small local businesses.
 
+## Current status
+
+Phase 1 development is underway. The repository now contains the first working **Signal System** homepage slice:
+
+- Responsive navigation and hero
+- Human-led strategy messaging
+- Signal-card interaction concept
+- Four-service bento grid
+- BLX design tokens and responsive CSS
+- Reduced-motion accessibility support
+- Current BLX logo and favicon
+
+The full **BLX Compile** opening and route-transition engine is deliberately reserved for a later phase, after the stable pages and content are established.
+
+## Run it locally
+
+You will need Node.js 22 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
+
+To verify a production build:
+
+```bash
+npm run build
+```
+
 ## Current brand asset
 
 The logo above is the current official BLX Solutions logo for this project. It is provisional and may be refined or replaced as the brand develops.
@@ -24,30 +55,14 @@ Guiding principle:
 
 > **Visually simple. Technically sophisticated. Strategically clear.**
 
-See the full [design direction](docs/DESIGN-DIRECTION.md).
+See the full [design direction](docs/DESIGN-DIRECTION.md), [roadmap](docs/ROADMAP.md) and [technical foundation](docs/TECHNICAL-FOUNDATION.md).
 
-## Project goals
+## Approved foundation
 
-- Build a polished website that immediately creates trust.
-- Use futuristic animation and interaction without sacrificing clarity or speed.
-- Showcase BLX Solutions' web-design and digital-marketing capability.
-- Develop the project feature by feature as a practical coding-learning project.
-- Keep the finished website maintainable and realistic to complete.
+- Next.js App Router
+- TypeScript
+- Custom CSS and reusable design tokens
+- npm
+- Cloudflare planned for production hosting closer to launch
 
-## Planned first version
-
-- BLX Compile opening sequence
-- High-impact kinetic homepage hero
-- Bento-grid services overview
-- Service-card-to-page Compile transitions
-- Clear explanation of who BLX Solutions helps
-- Selected work and portfolio section
-- Simple working process
-- Strong contact call to action
-- Responsive, accessible and performance-conscious design
-
-## Status
-
-Foundation and design direction established. Development has not started.
-
-See [the roadmap](docs/ROADMAP.md) for the suggested build order.
+No hosting setup is required for local development.
