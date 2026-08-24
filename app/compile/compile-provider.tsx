@@ -2,10 +2,10 @@
 
 import { createContext, CSSProperties, ReactNode, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { compileTimings, createCompileLines } from "./compile-config";
+import { compileTimings, getCompileRecipe } from "./compile-config";
 
 type CompilePhase = "idle" | "opening" | "code" | "routing" | "resolved" | "closing";
-type CompileRequest = { href: string; label: string };
+type CompileRequest = { href: string; label: string; route: string };
 type CompileContextValue = {
   compile: (request: CompileRequest) => void;
   prefetch: (href: string) => void;
@@ -26,7 +26,7 @@ export function CompileProvider({ children }: { children: ReactNode }) {
   const timers = useRef<number[]>([]);
   const sourcePath = useRef(pathname);
   const [phase, setPhase] = useState<CompilePhase>("idle");
-  const [request, setRequest] = useState<CompileRequest>({ href: "", label: "" });
+  const [request, setRequest] = useState<CompileRequest>({ href: "", label: "", route: "01" });
   const busy = phase !== "idle";
 
   const schedule = useCallback((action: () => void, delay: number) => {
@@ -70,16 +70,17 @@ export function CompileProvider({ children }: { children: ReactNode }) {
   const status = phase === "resolved" || phase === "closing"
     ? `${request.label} page ready.`
     : phase === "idle" ? "" : `Compiling ${request.label} page.`;
+  const recipe = getCompileRecipe(request.route, request.label, request.href);
 
   return (
     <CompileContext.Provider value={{ compile, prefetch: router.prefetch, busy }}>
       {children}
       <div className="compile-overlay" data-phase={phase} aria-hidden="true">
-        <div className="compile-overlay__bar"><span>BLX COMPILE / ROUTE 001</span><span>{phase === "resolved" || phase === "closing" ? "RESOLVED" : "PROCESSING"}</span></div>
+        <div className="compile-overlay__bar"><span>BLX COMPILE / ROUTE {request.route}</span><span>{phase === "resolved" || phase === "closing" ? "RESOLVED" : "PROCESSING"}</span></div>
         <div className="compile-overlay__body">
-          <p className="compile-overlay__label">Transforming interface into route logic</p>
+          <p className="compile-overlay__label">{recipe.activity}</p>
           <div className="compile-code" aria-hidden="true">
-            {createCompileLines(request.label, request.href).map((line, index) => (
+            {recipe.lines.map((line, index) => (
               <div className="compile-code__line" key={`${line}-${index}`} style={{ "--line": index } as CSSProperties}>
                 <span>{String(index + 1).padStart(2, "0")}</span><code>{line}</code>
               </div>
