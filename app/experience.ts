@@ -17,7 +17,7 @@ export const experienceTimeline = [
   {
     period: "2017 — 2019",
     role: "PPC specialist",
-    description: "Multi-channel campaign planning, optimisation, advert copy, data analysis, reporting, account management and client relationships.",
+    description: "Multi-channel campaign planning, optimisation, advert copy, data analysis, reporting and client relationships — including contributing to the evolution of large-scale automotive Google Ads automation.",
   },
   {
     period: "Now",
