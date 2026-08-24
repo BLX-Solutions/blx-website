@@ -64,6 +64,7 @@ Official creative direction: [The Signal System, powered by BLX Compile transiti
 The website must not go live until all of the following are complete:
 
 - [x] Add `hello.blxsolutions@gmail.com` as the provisional contact address and working email fallback
+- [x] Enable two-factor authentication and verify that the provisional inbox receives email
 - [ ] Confirm the official public BLX email address
 - [ ] Confirm any public phone number, messaging channel and business/service-area details that BLX wants displayed
 - [ ] Add the confirmed details to the contact page and relevant footer/legal content
