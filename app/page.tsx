@@ -98,9 +98,9 @@ export default function Home() {
             <p>Tools help us move faster and see more. Human experience decides what fits your audience, your goals and your business.</p>
           </div>
           <div className="phase-card">
-            <span className="card-label">Coming in phase two</span>
+            <span className="card-label">Prototype active</span>
             <div className="compile-preview"><span>BLX</span><span className="compile-cursor" aria-hidden="true" /></div>
-            <p>The full BLX Compile page-transition system will turn navigation into part of the story.</p>
+            <p>The Website Design card is the first BLX Compile route, turning navigation into part of the story.</p>
           </div>
         </section>
 
