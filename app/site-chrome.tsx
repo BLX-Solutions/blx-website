@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { contactDetails } from "./contact-details";
 
 export function SiteHeader() {
   return (
@@ -22,7 +23,10 @@ export function SiteFooter() {
       <Link href="/" aria-label="BLX Solutions home">
         <img src="/blx-solutions-logo.svg" alt="BLX Solutions" />
       </Link>
-      <p>© 2026 BLX Solutions. Human-led digital strategy.</p>
+      <div className="site-footer__details">
+        <a href={contactDetails.emailHref}>{contactDetails.email}</a>
+        <p>© 2026 BLX Solutions. Human-led digital strategy.</p>
+      </div>
     </footer>
   );
 }
