@@ -110,8 +110,8 @@ export default function Home() {
             <h2>BLX is new.<br />The digital experience isn&apos;t.</h2>
           </div>
           <div className="founder-signal__copy">
-            <p>BLX is led by Luke Brown, with experience spanning e-commerce, website delivery, SEO, paid search, digital strategy, reporting and client relationships.</p>
-            <div className="experience-tags" aria-label="Areas of experience"><span>E-commerce</span><span>Website delivery</span><span>PPC</span><span>Client accounts</span></div>
+            <p>BLX is led by Luke Brown, with experience spanning e-commerce, website delivery, SEO, paid search, digital strategy, reporting, client relationships and early large-scale advertising automation.</p>
+            <div className="experience-tags" aria-label="Areas of experience"><span>E-commerce</span><span>Website delivery</span><span>PPC</span><span>Automation</span><span>Client accounts</span></div>
             <Link className="text-link" href="/about">Read the BLX story</Link>
           </div>
         </section>
