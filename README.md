@@ -14,6 +14,18 @@ The logo above is the current official BLX Solutions logo for this project. It i
 
 Source file: [assets/brand/blx-solutions-logo.svg](assets/brand/blx-solutions-logo.svg)
 
+## Locked design direction
+
+> **The Signal System, powered by BLX Compile transitions.**
+
+The finished pages will use a clean bento-grid structure, expressive typography, restrained glass surfaces and purposeful micro-interactions. Technical complexity will be concentrated in the opening and page-transition experiences.
+
+Guiding principle:
+
+> **Visually simple. Technically sophisticated. Strategically clear.**
+
+See the full [design direction](docs/DESIGN-DIRECTION.md).
+
 ## Project goals
 
 - Build a polished website that immediately creates trust.
@@ -24,20 +36,18 @@ Source file: [assets/brand/blx-solutions-logo.svg](assets/brand/blx-solutions-lo
 
 ## Planned first version
 
-- High-impact animated homepage hero
-- Services overview
+- BLX Compile opening sequence
+- High-impact kinetic homepage hero
+- Bento-grid services overview
+- Service-card-to-page Compile transitions
 - Clear explanation of who BLX Solutions helps
 - Selected work and portfolio section
 - Simple working process
 - Strong contact call to action
 - Responsive, accessible and performance-conscious design
 
-## Visual direction
-
-Modern, dark and futuristic with restrained motion, crisp typography, luminous accents and interactive details. It should feel impressive while remaining clear and professional for local-business owners.
-
 ## Status
 
-Foundation only. Development will begin in a future session.
+Foundation and design direction established. Development has not started.
 
 See [the roadmap](docs/ROADMAP.md) for the suggested build order.
