@@ -63,6 +63,7 @@ Official creative direction: [The Signal System, powered by BLX Compile transiti
 
 The website must not go live until all of the following are complete:
 
+- [x] Add `hello.blxsolutions@gmail.com` as the provisional contact address and working email fallback
 - [ ] Confirm the official public BLX email address
 - [ ] Confirm any public phone number, messaging channel and business/service-area details that BLX wants displayed
 - [ ] Add the confirmed details to the contact page and relevant footer/legal content
@@ -72,6 +73,7 @@ The website must not go live until all of the following are complete:
 - [ ] Confirm the message arrives in the correct inbox and that replies work
 - [ ] Check spam handling and failure messaging
 - [ ] Remove all development-only contact notices
+- [ ] Replace the provisional Gmail address everywhere after the BLX domain and branded inbox are ready
 
 **This checklist is a hard launch blocker, not an optional polish task.**
 
