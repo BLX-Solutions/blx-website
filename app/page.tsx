@@ -23,9 +23,9 @@ export default function Home() {
               understanding of your business.
             </p>
             <div className="hero-actions">
-              <a className="button button--primary" href="#contact">Get a free website review</a>
-              <a className="button button--secondary" href="#contact">Request a quote</a>
-              <a className="text-link" href="#contact">Send a message <span aria-hidden="true">↗</span></a>
+              <Link className="button button--primary" href="/contact">Get a free website review</Link>
+              <Link className="button button--secondary" href="/contact">Request a quote</Link>
+              <Link className="text-link" href="/contact">Send a message</Link>
             </div>
           </div>
 
@@ -88,8 +88,8 @@ export default function Home() {
         <section className="contact shell" id="contact">
           <p className="eyebrow">Start a conversation</p>
           <h2>Tell us what you want<br />your business to become.</h2>
-          <p>Contact details and the enquiry form will be connected in the next build phase.</p>
-          <a className="button button--primary" href="#top">Explore the homepage <span aria-hidden="true">↑</span></a>
+          <p>Share a few useful details and we&apos;ll use them to understand the right next step for your business.</p>
+          <Link className="button button--primary" href="/contact">Start your enquiry</Link>
         </section>
       </main>
 
