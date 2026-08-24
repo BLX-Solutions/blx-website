@@ -42,6 +42,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <p className="eyebrow">{service.title}</p>
           <h1>{service.headline}</h1>
           <p className="service-hero__intro">{service.introduction}</p>
+          <Link className="button button--primary service-hero__cta" href={`/contact?service=${service.slug}`}>Discuss this service</Link>
         </section>
 
         <section className="service-detail shell">
