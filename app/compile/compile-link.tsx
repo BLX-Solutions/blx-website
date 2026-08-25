@@ -18,11 +18,12 @@ export function CompileLink({ href, label, route, className, children }: Compile
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    compile({ href, label, route });
+    const { top, left, width, height } = event.currentTarget.getBoundingClientRect();
+    compile({ href, label, route, origin: { top, left, width, height } });
   }
 
   return (
-    <Link aria-disabled={busy || undefined} className={className} href={href} onClick={handleClick} onFocus={() => prefetch(href)} onPointerEnter={() => prefetch(href)}>
+    <Link aria-disabled={busy || undefined} className={className} href={href} onClick={handleClick} onFocus={() => prefetch(href)} onPointerDown={() => prefetch(href)} onPointerEnter={() => prefetch(href)}>
       {children}
     </Link>
   );
