@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter, SiteHeader } from "../../site-chrome";
 import { getService, services } from "../../services";
+import { CompileLink } from "../../compile/compile-link";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -70,16 +71,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </ol>
         </section>
 
-        <section className="service-next shell">
+        <CompileLink className="service-next service-next--compile shell" href={`/services/${nextService.slug}`} label={nextService.title} route={nextService.number}>
           <div>
             <p className="eyebrow">Continue exploring</p>
             <p>Next signal</p>
             <h2>{nextService.title}</h2>
           </div>
-          <Link className="button button--primary" href={`/services/${nextService.slug}`}>
-            View service
-          </Link>
-        </section>
+          <span className="button button--primary">View service</span>
+        </CompileLink>
       </main>
       <SiteFooter />
     </>
