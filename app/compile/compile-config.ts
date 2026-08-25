@@ -1,14 +1,18 @@
 export const compileTimings = {
   mobile: {
-    revealCode: 260,
-    navigate: 1720,
+    prime: 40,
+    revealCode: 430,
+    navigate: 1530,
+    buildHold: 420,
     resolve: 300,
     close: 760,
-    safetyReset: 3800,
+    safetyReset: 3600,
   },
   desktop: {
-    revealCode: 120,
-    navigate: 760,
+    prime: 20,
+    revealCode: 110,
+    navigate: 720,
+    buildHold: 80,
     resolve: 160,
     close: 460,
     safetyReset: 2200,
@@ -16,8 +20,10 @@ export const compileTimings = {
 } as const;
 
 export type CompileTiming = {
+  prime: number;
   revealCode: number;
   navigate: number;
+  buildHold: number;
   resolve: number;
   close: number;
   safetyReset: number;
