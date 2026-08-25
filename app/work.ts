@@ -61,8 +61,8 @@ export const workProjects: WorkProject[] = [
     summary: "BLX Solutions building its own digital presence as a reusable demonstration of strategy, design and careful technical ambition.",
     challenge: "Create something futuristic enough to be memorable without sacrificing speed, clarity, accessibility or hundreds of unnecessary development hours.",
     approach: "A visually restrained system of typography, bento layouts and signal cues provides the stable foundation. Complexity is reserved for the reusable BLX Compile transition engine.",
-    evidence: ["Reusable design tokens and page structure", "Four genuine service routes", "Accessible enquiry-system foundation", "Reduced-motion and responsive behaviour"],
-    next: "Complete the stable content and credibility layers, then prototype BLX Compile against real routes rather than building animation around empty pages.",
+    evidence: ["Reusable design tokens and page structure", "Four genuine service routes with mobile-first Compile transitions", "Initial URL-entry compilation experience", "Accessible enquiry-system foundation and reduced-motion support"],
+    next: "Finish the remaining content and responsive refinements, verify the complete enquiry journey, then prepare the stable system for its first Cloudflare launch.",
     accent: "case-card--blue",
   },
 ];
