@@ -3,6 +3,7 @@ import { services } from "./services";
 import { SiteFooter, SiteHeader } from "./site-chrome";
 import { workProjects } from "./work";
 import { CompileLink } from "./compile/compile-link";
+import { ResponsiveSignalCard } from "./signal-card";
 
 export default function Home() {
   return (
@@ -32,12 +33,12 @@ export default function Home() {
           </div>
 
           <div className="signal-grid" aria-label="BLX approach">
-            <article className="signal-card signal-card--lead">
+            <ResponsiveSignalCard>
               <span className="card-label">Signal 01</span>
               <div className="pulse" aria-hidden="true" />
               <h2>Human strategy</h2>
               <p>Judgment, context and direction remain at the centre.</p>
-            </article>
+            </ResponsiveSignalCard>
             <article className="signal-card">
               <span className="card-label">Signal 02</span>
               <div className="code-mark" aria-hidden="true">&lt;/&gt;</div>
