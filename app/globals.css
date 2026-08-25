@@ -131,6 +131,10 @@ a { color: inherit; text-decoration: none; }
 .outcomes li span { color: var(--blue-light); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
 .outcomes li strong { font-size: clamp(20px, 2vw, 27px); font-weight: 600; letter-spacing: -.025em; }
 .service-next { align-items: end; background: linear-gradient(145deg, rgba(15,35,63,.82), rgba(6,14,26,.86)); border: 1px solid var(--line); border-radius: var(--radius-md); display: flex; justify-content: space-between; margin-bottom: 120px; min-height: 360px; padding: 42px; }
+.service-next--compile { overflow: hidden; position: relative; transition: border-color .25s ease, transform .25s ease; }
+.service-next--compile::before { background: var(--blue); content: ""; height: 2px; inset: 0 0 auto; position: absolute; transform: scaleX(.16); transform-origin: left; transition: transform .3s ease; }
+.service-next--compile:hover { border-color: rgba(107,160,255,.52); transform: translateY(-3px); }
+.service-next--compile:hover::before { transform: scaleX(1); }
 .service-next > div > p:not(.eyebrow) { color: var(--muted); margin: 0 0 8px; }
 .service-next h2 { font-size: clamp(38px, 5vw, 64px); letter-spacing: -.055em; line-height: 1; margin: 0; }
 .contact-hero { align-items: end; display: grid; gap: 70px; grid-template-columns: 1.2fr .8fr; padding-block: 94px 100px; }
