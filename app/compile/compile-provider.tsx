@@ -4,7 +4,7 @@ import { createContext, CSSProperties, ReactNode, useCallback, useContext, useEf
 import { usePathname, useRouter } from "next/navigation";
 import { compileTimings, CompileTiming, getCompileRecipe } from "./compile-config";
 
-type CompilePhase = "idle" | "opening" | "code" | "routing" | "resolved" | "closing";
+type CompilePhase = "idle" | "primed" | "opening" | "code" | "building" | "holding" | "resolved" | "closing";
 type CompileOrigin = { top: number; left: number; width: number; height: number };
 type CompileRequest = { href: string; label: string; route: string; origin: CompileOrigin };
 type CompileContextValue = {
@@ -26,6 +26,7 @@ export function CompileProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const timers = useRef<number[]>([]);
   const sourcePath = useRef(pathname);
+  const routeStartedAt = useRef(0);
   const activeTimings = useRef<CompileTiming>(compileTimings.mobile);
   const [phase, setPhase] = useState<CompilePhase>("idle");
   const [request, setRequest] = useState<CompileRequest>({ href: "", label: "", route: "01", origin: { top: 0, left: 0, width: 0, height: 0 } });
@@ -51,10 +52,14 @@ export function CompileProvider({ children }: { children: ReactNode }) {
   }, [busy]);
 
   useEffect(() => {
-    if (phase !== "routing" || pathname === sourcePath.current) return;
-    setPhase("resolved");
-    schedule(() => setPhase("closing"), activeTimings.current.resolve);
-    schedule(() => setPhase("idle"), activeTimings.current.close);
+    if (phase !== "building" || pathname === sourcePath.current) return;
+    const timings = activeTimings.current;
+    const elapsed = performance.now() - routeStartedAt.current;
+    const remainingHold = Math.max(0, timings.buildHold - elapsed);
+    setPhase("holding");
+    schedule(() => setPhase("resolved"), remainingHold);
+    schedule(() => setPhase("closing"), remainingHold + timings.resolve);
+    schedule(() => setPhase("idle"), remainingHold + timings.close);
   }, [pathname, phase, schedule]);
 
   const compile = useCallback((nextRequest: CompileRequest) => {
@@ -71,10 +76,12 @@ export function CompileProvider({ children }: { children: ReactNode }) {
     activeTimings.current = timings;
     sourcePath.current = pathname;
     setRequest(nextRequest);
-    setPhase("opening");
+    setPhase("primed");
+    schedule(() => setPhase("opening"), timings.prime);
     schedule(() => setPhase("code"), timings.revealCode);
     schedule(() => {
-      setPhase("routing");
+      setPhase("building");
+      routeStartedAt.current = performance.now();
       router.push(nextRequest.href);
     }, timings.navigate);
     schedule(() => setPhase("idle"), timings.safetyReset);
@@ -96,7 +103,7 @@ export function CompileProvider({ children }: { children: ReactNode }) {
       {children}
       <div className="compile-overlay" data-phase={phase} aria-hidden="true" style={originStyle}>
         <div className="compile-surface">
-          <div className="compile-overlay__bar"><span>BLX COMPILE / ROUTE {request.route}</span><span>{phase === "resolved" || phase === "closing" ? "RESOLVED" : "PROCESSING"}</span></div>
+          <div className="compile-overlay__bar"><span>BLX COMPILE / ROUTE {request.route}</span><span>{phase === "resolved" || phase === "closing" ? "RESOLVED" : phase === "building" || phase === "holding" ? "BUILDING" : "PROCESSING"}</span></div>
           <div className="compile-overlay__body">
             <p className="compile-overlay__label">{recipe.activity}</p>
             <div className="compile-code" aria-hidden="true">
