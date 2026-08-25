@@ -15,6 +15,10 @@ type CompileContextValue = {
 
 const CompileContext = createContext<CompileContextValue | null>(null);
 
+function supportsClientRouter() {
+  return typeof (window.crypto?.subtle as { digest?: unknown } | undefined)?.digest === "function";
+}
+
 export function useCompile() {
   const value = useContext(CompileContext);
   if (!value) throw new Error("useCompile must be used inside CompileProvider");
@@ -82,10 +86,16 @@ export function CompileProvider({ children }: { children: ReactNode }) {
     schedule(() => {
       setPhase("building");
       routeStartedAt.current = performance.now();
-      router.push(nextRequest.href);
+      sessionStorage.setItem("blx-internal-navigation", String(Date.now()));
+      if (supportsClientRouter()) router.push(nextRequest.href);
+      else window.location.assign(nextRequest.href);
     }, timings.navigate);
     schedule(() => setPhase("idle"), timings.safetyReset);
   }, [busy, clearTimers, pathname, router, schedule]);
+
+  const prefetch = useCallback((href: string) => {
+    if (supportsClientRouter()) router.prefetch(href);
+  }, [router]);
 
   const status = phase === "resolved" || phase === "closing"
     ? `${request.label} page ready.`
@@ -99,7 +109,7 @@ export function CompileProvider({ children }: { children: ReactNode }) {
   } as CSSProperties;
 
   return (
-    <CompileContext.Provider value={{ compile, prefetch: router.prefetch, busy }}>
+    <CompileContext.Provider value={{ compile, prefetch, busy }}>
       {children}
       <div className="compile-overlay" data-phase={phase} aria-hidden="true" style={originStyle}>
         <div className="compile-surface">
