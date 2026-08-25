@@ -15,7 +15,13 @@ export const compileTimings = {
   },
 } as const;
 
-export type CompileTiming = typeof compileTimings.mobile;
+export type CompileTiming = {
+  revealCode: number;
+  navigate: number;
+  resolve: number;
+  close: number;
+  safetyReset: number;
+};
 
 type CompileRecipe = {
   activity: string;
