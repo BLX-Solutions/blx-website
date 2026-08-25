@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CompileProvider } from "./compile/compile-provider";
+import { EntryCompile } from "./compile/entry-compile";
 
 export const metadata: Metadata = {
   title: "BLX Solutions | Human-led digital strategy",
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body><CompileProvider>{children}</CompileProvider></body>
+      <body><CompileProvider><EntryCompile />{children}</CompileProvider></body>
     </html>
   );
 }
