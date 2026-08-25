@@ -14,11 +14,16 @@ const entryCode = [
 
 export function EntryCompile() {
   const pathname = usePathname();
+  const isDevelopmentLab = pathname === "/compile-lab" || pathname === "/responsive-lab";
   const timers = useRef<number[]>([]);
   const [phase, setPhase] = useState<EntryPhase>("boot");
 
   useEffect(() => {
-    if (pathname === "/compile-lab" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const internalNavigationAt = Number(sessionStorage.getItem("blx-internal-navigation") || 0);
+    sessionStorage.removeItem("blx-internal-navigation");
+    const followsInternalNavigation = Date.now() - internalNavigationAt < 10000;
+
+    if (isDevelopmentLab || followsInternalNavigation || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setPhase("idle");
       return;
     }
@@ -44,11 +49,11 @@ export function EntryCompile() {
   }, []);
 
   useEffect(() => {
-    if (phase === "idle" || pathname === "/compile-lab") return;
+    if (phase === "idle" || isDevelopmentLab) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = previousOverflow; };
-  }, [pathname, phase]);
+  }, [isDevelopmentLab, phase]);
 
   const status = phase === "resolved"
     ? "BLX Solutions ready."
