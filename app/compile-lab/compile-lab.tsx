@@ -14,11 +14,13 @@ const labServices = [
   { route: "04", title: "Support & handover", slug: "website-support-handover", headline: "Support that does not create dependence." },
 ] as const;
 
+type LabService = (typeof labServices)[number];
+
 export function CompileLab() {
   const phone = useRef<HTMLDivElement>(null);
   const timers = useRef<number[]>([]);
   const [phase, setPhase] = useState<LabPhase>("idle");
-  const [selected, setSelected] = useState(labServices[0]);
+  const [selected, setSelected] = useState<LabService>(labServices[0]);
   const [origin, setOrigin] = useState<Origin>({ top: 0, left: 0, width: 0, height: 0 });
   const recipe = getCompileRecipe(selected.route, selected.title, `/services/${selected.slug}`);
 
@@ -34,7 +36,7 @@ export function CompileLab() {
     timers.current.push(timer);
   }
 
-  function runCompile(event: MouseEvent<HTMLButtonElement>, service: typeof labServices[number]) {
+  function runCompile(event: MouseEvent<HTMLButtonElement>, service: LabService) {
     if (phase !== "idle" || !phone.current) return;
     clearTimers();
     const card = event.currentTarget.getBoundingClientRect();
